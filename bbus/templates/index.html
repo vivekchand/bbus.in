@@ -1,0 +1,54 @@
+<html>
+<head>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="http://twitter.github.io/typeahead.js/css/examples.css">
+    <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="http://twitter.github.com/typeahead.js/releases/latest/typeahead.bundle.js"></script>
+        
+</head>
+<body>
+    <h3 align="middle">bbus.in | BMTC Bus Route Search</h3>
+    <div class="example example-numbers">
+        <div class="demo" align="middle">
+          <input class="typeahead" type="text" placeholder="From">
+          <input class="typeahead" type="text" placeholder="To">
+        </div>
+        <div align="middle">
+            <input type="submit" class="btn btn-lg">
+        </div>
+        <br/><br/>
+        <div align="middle">
+            <h1>Coming Soon ...</h1>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+$(document).ready(function() {
+  var numbers, countries, repos, arabic, nba, nhl, films, anExcitedSource;
+
+  numbers = new Bloodhound({
+    datumTokenizer: function(d) { return Bloodhound.tokenizers.whitespace(d.num); },
+    queryTokenizer: Bloodhound.tokenizers.whitespace,
+    local: [
+      { num: 'one' },
+      { num: 'two' },
+      { num: 'three' },
+      { num: 'four' },
+      { num: 'five' },
+      { num: 'six' },
+      { num: 'seven' },
+      { num: 'eight' },
+      { num: 'nine' },
+      { num: 'ten' }
+    ]
+  });
+  numbers.initialize();
+  $('.example-numbers .typeahead').typeahead(null, {
+    displayKey: 'num',
+    source: numbers.ttAdapter()
+  });
+});
+</script>
+</html>
