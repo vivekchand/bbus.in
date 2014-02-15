@@ -8,6 +8,13 @@
     <script src="/static/bootstrap.min.js"></script>
     <script src="/static/typeahead.bundle.js"></script>
     <title>bbus.in | BMTC Bus Route Search</title>
+    <meta property="og:title" content="bbus.in - BMTC Bus Route Search" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://www.bbus.in/" />
+    <meta property="og:image" content="http://bangalorereporter.com/wp-content/uploads/2013/07/0311.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="400" />
+    <meta property="og:image:height" content="400" />
 </head>
 <body>
 <div class="container">
@@ -42,7 +49,9 @@
              <center><button type="submit" class="btn btn-primary btn-lg">Search</button></center>
           </form>
      </div>
-     <div class="col-md-3"></div>
+     <div class="col-md-3">
+        {% include "social_btns.html" %}
+     </div>
 </div>
 <br/>
 <center>
@@ -54,6 +63,19 @@
 </body>
 <script type="text/javascript">
 $(document).ready(function() {
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.async=true; js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=534027093377555";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+    (function() {
+      var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+      po.src = 'https://apis.google.com/js/platform.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+    })();
 
     var bus_stops = new Bloodhound({
       datumTokenizer: function(d) { return Bloodhound.tokenizers.whitespace(d.name); },
@@ -84,9 +106,6 @@ $(document).ready(function() {
       displayKey: 'name',
       source: bus_stops.ttAdapter(),
     });
-
-
-
 });
 </script>
 </html>
