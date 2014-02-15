@@ -124,6 +124,8 @@ INSTALLED_APPS = (
     'bbus',
 )
 
+DATA_URL = 'http://narasimhadatta.info/cgi-bin/find.cgi'
+
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error when DEBUG=False.

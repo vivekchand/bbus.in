@@ -13,7 +13,7 @@
 <div class="container">
      <div class="col-md-3"></div>
      <div class="col-md-6">
-          <form>
+          <form method="POST" action="/search">{% csrf_token %}
              <div class="form-group">
                 <label for="from">From:</label>
                 <div class="js-from">
@@ -24,6 +24,18 @@
                 <label for="to">To:</label>
                 <div class="js-to">
                    <input type="text" class="typeahead form-control" name="to" placeholder="Reach to ..."/>
+                </div>
+             </div>
+             <div class="form-group">
+                <label for="to">How do you want to travel?:</label>
+                <div class="js-to">
+                   <select name='how' class="form-control">
+                        <option>Minimum Number of Hops</option>
+                        <option>Maximum Bus Route Availability</option>
+                        <option>Via Terminal Bus Stations Only</option>
+                        <option>Direct Routes Only</option>
+                        <option>Shortest Distance</option>
+                   </select>
                 </div>
              </div>
              <br/><br/>
@@ -50,7 +62,7 @@ $(document).ready(function() {
     });
 
     bus_stops.initialize();
-    
+
     $('.js-to .typeahead').typeahead({
       highlight: true,
      }, {

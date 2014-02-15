@@ -4,11 +4,25 @@ if not settings.configured:
 import json
 from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
+import requests
+from lxml import html
+from BeautifulSoup import BeautifulSoup
+from bbus_utils import *
 
 def index(request):
     return render(request, 'index.html')
 
-def bbus_list(request):
-    bus_json = open(settings.BASE_DIR+'/bbus/bus_json.json').read().split('\n')
-    return HttpResponse(json.dumps(bus_json), content_type="application/json")
-    
+def search(request):
+    src = request.POST.get('from')
+    dst = request.POST.get('to')
+    how = request.POST.get('how')
+    page = requests.post(settings.DATA_URL,
+        data={'from': src, 'to': dst, 'how': how})
+    soup = BeautifulSoup(page.text)
+    tables = soup.findAll('table')
+    bus_routes = {}
+    routes = 1
+    for table in tables:
+        bus_routes['route'+str(routes)] = table2json(table.findAll('tr'))
+        routes += 1
+    return HttpResponse(json.dumps(bus_routes), content_type="application/json")

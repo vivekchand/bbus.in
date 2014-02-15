@@ -17,5 +17,5 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'bbus.views.index', name='index'),
-    url(r'^list.json$', 'bbus.views.bbus_list', name='bbus_list'),
+    url(r'^search$', 'bbus.views.search', name='bbus_list'),
 ) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
