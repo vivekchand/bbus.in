@@ -43,6 +43,9 @@ $(document).ready(function() {
       limit: 15,
       prefetch: {
         url: '/static/bus_list.json',
+        filter: function(list) {
+         return $.map(list, function(country) { return { name: country }; });
+        }
       }
     });
 
