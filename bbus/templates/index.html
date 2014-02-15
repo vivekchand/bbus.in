@@ -40,11 +40,11 @@ $(document).ready(function() {
     var bus_stops = new Bloodhound({
       datumTokenizer: function(d) { return Bloodhound.tokenizers.whitespace(d.name); },
       queryTokenizer: Bloodhound.tokenizers.whitespace,
-      limit: 15,
+      limit: 4,
       prefetch: {
         url: '/static/bus_list.json',
         filter: function(list) {
-         return $.map(list, function(country) { return { name: country }; });
+         return $.map(list, function(bus_stop) { return { name: bus_stop }; });
         }
       }
     });
