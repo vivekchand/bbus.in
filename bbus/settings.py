@@ -1,4 +1,6 @@
 # Django settings for bbus project.
+import os
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
