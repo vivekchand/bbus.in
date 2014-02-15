@@ -69,6 +69,15 @@ MEDIA_URL = ''
 STATIC_URL = '/static/'
 STATIC_ROOT = '/static/'
 
+STATICFILES_DIRS = (
+    BASE_DIR+'/static/',
+)
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+)
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'a$i9cbie-&z9x2wij1dyqbull#&+cb^^ppup=hi5h**f8d2_@h'
