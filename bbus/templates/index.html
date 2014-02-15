@@ -1,54 +1,70 @@
 <html>
 <head>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="http://twitter.github.io/typeahead.js/css/examples.css">
-    <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-    <script src="http://twitter.github.com/typeahead.js/releases/latest/typeahead.bundle.js"></script>
-        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/bootstrap.min.css">
+    <script src="/static//jquery-2.1.0.min.js"></script>
+    <script src="/static/typeahead.bundle.js"></script>
+    <link href="/static/signin.css" rel="stylesheet">
+    <link href="/static/typeahead.css" rel="stylesheet">
+    <title>bbus.in | BMTC Bus Route Search</title>
 </head>
 <body>
-    <h3 align="middle">bbus.in | BMTC Bus Route Search</h3>
-    <div class="example example-numbers">
-        <div class="demo" align="middle">
-          <input class="typeahead" type="text" placeholder="From">
-          <input class="typeahead" type="text" placeholder="To">
-        </div>
-        <div align="middle">
-            <input type="submit" class="btn btn-lg">
-        </div>
-        <br/><br/>
-        <div align="middle">
-            <h1>Coming Soon ...</h1>
-        </div>
-    </div>
+<div class="container">
+     <div class="col-md-3"></div>
+     <div class="col-md-6">
+          <form>
+             <div class="form-group">
+                <label for="from">From:</label>
+                <div class="js-from">
+                    <input type="text" class="typeahead form-control" name="from" placeholder="Start From ..."/>
+                </div>
+             </div>
+             <div class="form-group">
+                <label for="to">To:</label>
+                <div class="js-to">
+                   <input type="text" class="typeahead form-control" name="to" placeholder="Reach to ..."/>
+                </div>
+             </div>
+             <br/><br/>
+             <center><button type="submit" class="btn btn-primary btn-lg">Search</button></center>
+          </form>
+     </div>
+     <div class="col-md-3"></div>
+</div>
+<center><h3>bbus.in <small> BMTC Bus Route Search</small></h3></center>
 </body>
 <script type="text/javascript">
 $(document).ready(function() {
-  var numbers, countries, repos, arabic, nba, nhl, films, anExcitedSource;
 
-  numbers = new Bloodhound({
-    datumTokenizer: function(d) { return Bloodhound.tokenizers.whitespace(d.num); },
-    queryTokenizer: Bloodhound.tokenizers.whitespace,
-    local: [
-      { num: 'one' },
-      { num: 'two' },
-      { num: 'three' },
-      { num: 'four' },
-      { num: 'five' },
-      { num: 'six' },
-      { num: 'seven' },
-      { num: 'eight' },
-      { num: 'nine' },
-      { num: 'ten' }
-    ]
-  });
-  numbers.initialize();
-  $('.example-numbers .typeahead').typeahead(null, {
-    displayKey: 'num',
-    source: numbers.ttAdapter()
-  });
+    var bus_stops = new Bloodhound({
+      datumTokenizer: function(d) { return Bloodhound.tokenizers.whitespace(d.name); },
+      queryTokenizer: Bloodhound.tokenizers.whitespace,
+      limit: 15,
+      prefetch: {
+        url: '/list.json',
+      }
+    });
+
+    bus_stops.initialize();
+    
+    $('.js-to .typeahead').typeahead({
+      highlight: true,
+     }, {
+      name: 'bus_stops',
+      displayKey: 'name',
+      source: bus_stops.ttAdapter()
+    });
+
+    $('.js-from .typeahead').typeahead({
+      highlight: true,
+    }, {
+      name: 'bus_stops',
+      displayKey: 'name',
+      source: bus_stops.ttAdapter(),
+    });
+
+
+
 });
 </script>
 </html>
