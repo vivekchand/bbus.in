@@ -20,9 +20,9 @@ def search(request):
         data={'from': src, 'to': dst, 'how': how})
     soup = BeautifulSoup(page.text)
     tables = soup.findAll('table')
-    bus_routes = {}
-    routes = 1
+    bus_routes = []
+    routes = 0
     for table in tables:
-        bus_routes['route'+str(routes)] = table2json(table.findAll('tr'))
         routes += 1
-    return HttpResponse(json.dumps(bus_routes), content_type="application/json")
+        bus_routes.append(table2json(table.findAll('tr')))
+    return render(request, 'search.html', {'routes':bus_routes})

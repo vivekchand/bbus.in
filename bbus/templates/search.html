@@ -1,0 +1,51 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/bootstrap.min.css">
+    <link href="/static/typeahead.css" rel="stylesheet">
+    <script src="/static/jquery-2.1.0.min.js"></script>
+    <script src="/static/bootstrap.min.js"></script>
+    <title>bbus.in | BMTC Bus Route Search</title>
+</head>
+<body>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <br/><br/>
+        {% for route in routes %}
+            <div class="panel panel-default">
+            <div class="panel-heading">Route {{forloop.counter}}</div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th><small>Hop #</small></th>
+                        <th><small>From</small></th>
+                        <th><small>To</small></th>
+                        <th><small>Bus No.   </small></th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for hop in route %}
+                    <tr>
+                        <td><small>{{ hop.Hop }}</small></td>
+                        <td><small>{{ hop.From }}</small></td>
+                        <td><small>{{ hop.To }}</small></td>
+                        <td><small>{{ hop.bus_nos }}</small></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            </div>
+            <hr/>
+            <br/><br/>
+        {% endfor %}
+    </div>
+    <div class="col-md-2"></div>
+</div>
+<center><h3>bbus.in <small> BMTC Bus Route Search</small></h3></center>
+</body>
+<script type="text/javascript">
+$(document).ready(function() {
+});
+</script>
+</html>
