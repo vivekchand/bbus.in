@@ -24,21 +24,21 @@
      <div class="col-md-6">
           <form method="POST" id="js-search-form" action="/search">{% csrf_token %}
              <div class="form-group">
-                <label for="from">From:</label>
+                <label for="from">From</label>
                 <div class="js-from">
                     <label class="control-label" style="display:none;" id="js-src-err">Where do you want to start from?</label>
-                    <input type="text" class="typeahead form-control" id="js-src" name="from" placeholder="Start From ..." required>
+                    <input type="text" class="typeahead form-control" id="js-src" name="from" placeholder="Start from bus stop .." required>
                 </div>
              </div>
              <div class="form-group">
-                <label for="to">To:</label>
+                <label for="to">To</label>
                 <div class="js-to">
-                    <label class="control-label" style="display:none;" id="js-dst-err">Where do you want to start reach?</label>
-                   <input type="text" class="typeahead form-control" id="js-dst" name="to" placeholder="Reach to ..." required>
+                    <label class="control-label" style="display:none;" id="js-dst-err">Where do you want to reach?</label>
+                   <input type="text" class="typeahead form-control" id="js-dst" name="to" placeholder="Reach to bus stop .." required>
                 </div>
              </div>
              <div class="form-group">
-                <label for="to">How do you want to travel?:</label>
+                <label for="to">How do you want to travel?</label>
                 <div class="js-to">
                    <select name='how' class="form-control">
                         <option>Minimum Number of Hops</option>
