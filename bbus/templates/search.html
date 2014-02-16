@@ -11,14 +11,13 @@
 <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-8">
-        <br/><br/>
         {% if not routes %}
             <center><h3>No bus routes found!</h3></center>
         {% endif %}
         {% for route in routes %}
             <div class="panel panel-default">
             <div class="panel-heading">Route {{forloop.counter}}</div>
-            <table class="table">
+            <table class="table table-hover">
                 <thead>
                     <tr>
                         <th><small>Hop #</small></th>
