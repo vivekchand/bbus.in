@@ -24,7 +24,7 @@ http://bbus.in/static/bus_list.json
   
 Example: Open below url in browser:
 
-`http://www.bbus.in//api/v1/search/?from=Banashankari%201st%20Stage/Mysore%20Bank%20Colony&to=Bande%20Nallasandra&how=Minimum%20Number%20of%20Hops`
+`http://www.bbus.in/api/v1/search/?from=Banashankari%201st%20Stage/Mysore%20Bank%20Colony&to=Bande%20Nallasandra&how=Minimum%20Number%20of%20Hops`
 
 Sample Response:
 ```
