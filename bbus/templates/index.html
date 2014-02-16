@@ -20,17 +20,19 @@
 <div class="container">
      <div class="col-md-3"></div>
      <div class="col-md-6">
-          <form method="POST" action="/search">{% csrf_token %}
+          <form method="POST" id="js-search-form" action="/search">{% csrf_token %}
              <div class="form-group">
                 <label for="from">From:</label>
                 <div class="js-from">
-                    <input type="text" class="typeahead form-control" name="from" placeholder="Start From ..."/>
+                    <label class="control-label" style="display:none;" id="js-src-err">Where do you want to start from?</label>
+                    <input type="text" class="typeahead form-control" id="js-src" name="from" placeholder="Start From ..." required>
                 </div>
              </div>
              <div class="form-group">
                 <label for="to">To:</label>
                 <div class="js-to">
-                   <input type="text" class="typeahead form-control" name="to" placeholder="Reach to ..."/>
+                    <label class="control-label" style="display:none;" id="js-dst-err">Where do you want to start reach?</label>
+                   <input type="text" class="typeahead form-control" id="js-dst" name="to" placeholder="Reach to ..." required>
                 </div>
              </div>
              <div class="form-group">
@@ -46,7 +48,7 @@
                 </div>
              </div>
              <br/><br/>
-             <center><button type="submit" class="btn btn-primary btn-lg">Search</button></center>
+             <center><button type="submit" data-loading-text="Searching ..." id="js-submit-btn" class="btn btn-primary btn-lg">Search</button></center>
           </form>
      </div>
      <div class="col-md-3">
@@ -105,6 +107,32 @@ $(document).ready(function() {
       name: 'bus_stops',
       displayKey: 'name',
       source: bus_stops.ttAdapter(),
+    });
+
+    $('#js-submit-btn').on('click', function(event){
+        event.preventDefault();
+        $('#js-src-err').hide();
+        $('#js-dst-err').hide();
+        $('#js-src').parent().removeClass('has-error');
+        $('#js-dst').parent().removeClass('has-error');
+        var $btn = $(this);
+        $btn.button('loading');
+        var $src = $('#js-src');
+        var $dst = $('#js-dst');
+        if(!$src.val()){
+            $('#js-src').parent().addClass('has-error');
+            $('#js-src-err').show();
+            $btn.button('reset');
+            return;
+        }
+        if(!$dst.val()){
+            $('#js-dst').parent().addClass('has-error');
+            $('#js-dst-err').show();
+            $btn.button('reset');
+            return;
+        }
+        var form = $('#js-search-form');
+        form.submit();
     });
 });
 </script>
