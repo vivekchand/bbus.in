@@ -13,6 +13,8 @@ def index(request):
     return render(request, 'index.html')
 
 def search(request):
+    if request.method != 'POST':
+        return HttpResponseRedirect('/')
     src = request.POST.get('from')
     dst = request.POST.get('to')
     how = request.POST.get('how')
