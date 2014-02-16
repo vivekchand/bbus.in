@@ -29,23 +29,23 @@ Example: Open below url in browser:
 Sample Response:
 ```
 {
-  route4: [
-    {
-      bus_nos: "34, 34A, 34C, 34F, 34H, 34S, 183A, 314K, TR7",
-      To: "Shanthinagar Bus Station",
-      From: "Banashankari 1st Stage/Mysore Bank Colony",
-      Hop: "1"
-    },
-    {
-      bus_nos: "355E",
-      To: "Bande Nallasandra",
-      From: "Shanthinagar Bus Station",
-      Hop: "2"
-    }
+  route5: [
+      {
+        bus_nos: "34D, 34F, 34H, 34S, 43, 188, 188B, 314K, TR7",
+        Hop: "1",
+        From: "Banashankari 1st Stage/Mysore Bank Colony",
+        To: "Urvashi Talkies"
+      },
+      {
+        bus_nos: "346F",
+        Hop: "2",
+        From: "Urvashi Talkies",
+        To: "Bande Nallasandra"
+      }
   ],
-  route5: [],
-  route1: [],
+  route4: [],
+  route3: [],
   route2: [],
-  route3: []
+  route1: []
 }
 ```
