@@ -11,7 +11,7 @@ bbus.in API:
 GET http://bbus.in/api/v1/search/?from={FROM_STOP}&to={TO_STOP}&how={HOW}
 
 {FROM_STOP} & {TO_STOP} can be any of the values here:
-http://bbus.in/static/bus_list.json
+  http://bbus.in/static/bus_list.json
 
 {HOW} can be any of the following values:
 
