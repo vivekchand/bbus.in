@@ -85,7 +85,7 @@ $(document).ready(function() {
       datumTokenizer: function(d) { return Bloodhound.tokenizers.whitespace(d.name); },
       queryTokenizer: Bloodhound.tokenizers.whitespace,
       limit: 8,
-      prefetch: {
+      remote: {
         url: '/static/bus_list.json',
         filter: function(list) {
          return $.map(list, function(bus_stop) { return { name: bus_stop }; });
