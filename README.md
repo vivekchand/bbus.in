@@ -22,7 +22,7 @@ http://bbus.in/static/bus_list.json
   Shortest Distance
 ```  
   
-Example open below url in browser:
+Example: Open below url in browser:
 
 `http://www.bbus.in//api/v1/search/?from=Banashankari%201st%20Stage/Mysore%20Bank%20Colony&to=Bande%20Nallasandra&how=Minimum%20Number%20of%20Hops`
 
