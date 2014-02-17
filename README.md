@@ -49,3 +49,8 @@ Sample Response:
   route1: []
 }
 ```
+
+Thanks to:
+----------
+`Narasimha Datta: bbus.in is very much based on http://www.narasimhadatta.info/bmtc_query.html` 
+
