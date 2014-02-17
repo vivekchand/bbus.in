@@ -4,7 +4,7 @@ bbus.in
 BMTC Bus Route Search http://www.bbus.in/
 
 bbus.in API:
-------------
+-------------------
 
 
 ```
