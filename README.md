@@ -1,5 +1,4 @@
-[![Stories in Ready](https://badge.waffle.io/vivekchand/bbus.in.png?label=ready)](https://waffle.io/vivekchand/bbus.in)
-bbus.in
+bbus.in [![Stories in Ready](https://badge.waffle.io/vivekchand/bbus.in.png?label=ready)](https://waffle.io/vivekchand/bbus.in)
 =======
 
 BMTC Bus Route Search http://www.bbus.in/
