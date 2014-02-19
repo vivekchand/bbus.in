@@ -49,11 +49,17 @@ Sample Response:
   route1: []
 }
 ```
+Local Setup:
+------------
+```python
+pip install -r requirements.txt
+python manage.py runserver
+```
+
 Todo:
 -----
 * Show map of bus route on clicking any bus no. 
 * Show timings of bus at the particualr bus stop
-
 
 Thanks to:
 ----------
