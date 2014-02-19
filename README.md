@@ -49,6 +49,11 @@ Sample Response:
   route1: []
 }
 ```
+Todo:
+-----
+* Show map of bus route on clicking any bus no. 
+* Show timings of bus at the particualr bus stop
+
 
 Thanks to:
 ----------
