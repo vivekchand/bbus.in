@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/vivekchand/bbus.in.png?label=ready)](https://waffle.io/vivekchand/bbus.in)
 bbus.in
 =======
 
