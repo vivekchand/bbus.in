@@ -1,4 +1,5 @@
 <html>
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/static/bootstrap.min.css">
@@ -16,109 +17,129 @@
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="400" />
     <meta property="og:image:height" content="400" />
-    <meta property="fb:app_id" content="534027093377555"/>
+    <meta property="fb:app_id" content="534027093377555" />
 </head>
+
 <body>
-<div class="container">
-     <div class="col-md-3">
-     </div>
-     <div class="col-md-6">
-          <form method="POST" id="js-search-form" action="/search">{% csrf_token %}
-             <div class="form-group">
-                <label for="from">From</label>
-                <div class="js-from">
-                    <label class="control-label" style="display:none;" id="js-src-err">Where do you want to start from?</label>
-                    <input type="text" class="typeahead form-control" id="js-src" name="from" placeholder="Start from bus stop .." required>
+    <div class="container">
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-6">
+            <form method="POST" id="js-search-form" action="/search">{% csrf_token %}
+                <div class="form-group">
+                    <label for="from">From</label>
+                    <div class="js-from">
+                        <label class="control-label" style="display:none;" id="js-src-err">Where do you want to start from?</label>
+                        <input type="text" class="typeahead form-control" id="js-src" name="from" placeholder="Start from bus stop .." required>
+                    </div>
                 </div>
-             </div>
-             <div class="form-group">
-                <label for="to">To</label>
-                <div class="js-to">
-                    <label class="control-label" style="display:none;" id="js-dst-err">Where do you want to reach?</label>
-                   <input type="text" class="typeahead form-control" id="js-dst" name="to" placeholder="Reach to bus stop .." required>
+                <div class="form-group">
+                    <label for="to">To</label>
+                    <div class="js-to">
+                        <label class="control-label" style="display:none;" id="js-dst-err">Where do you want to reach?</label>
+                        <input type="text" class="typeahead form-control" id="js-dst" name="to" placeholder="Reach to bus stop .." required>
+                    </div>
                 </div>
-             </div>
-             <div class="form-group">
-                <label for="to">How do you want to travel?</label>
-                <div class="js-to">
-                   <select name='how' class="form-control">
-                        <option>Minimum Number of Hops</option>
-                        <option>Maximum Bus Route Availability</option>
-                        <option>Via Terminal Bus Stations Only</option>
-                        <option>Direct Routes Only</option>
-                        <option>Shortest Distance</option>
-                   </select>
+                <div class="form-group">
+                    <label for="to">How do you want to travel?</label>
+                    <div class="js-to">
+                        <select name='how' class="form-control">
+                            <option>Minimum Number of Hops</option>
+                            <option>Maximum Bus Route Availability</option>
+                            <option>Via Terminal Bus Stations Only</option>
+                            <option>Direct Routes Only</option>
+                            <option>Shortest Distance</option>
+                        </select>
+                    </div>
                 </div>
-             </div>
-             <br/><br/>
-             <center><button type="submit" data-loading-text="Searching ..." id="js-submit-btn" class="btn btn-primary btn-lg">Search</button></center>
-          </form>
-     </div>
-     <div class="col-md-3">
-        {% include "social_btns.html" %}
-     </div>
-</div>
-<br/>
-<center>
-<h3>bbus.in <small> BMTC Bus Route Search</small></h3>
-<br/>
-<br/>
-<small>
- If you want to know the status of the bus, send an SMS <br/>to the number <b>9945634666</b> with the message, <br/><b>"Yi v&lt;bus.no&gt; &lt;direction&gt;"</b> say, <b>“Yi V356C U”</b> where <br/><b>“Yi”</b> means “Yelli Iddira?”. V356C is the route number of a bus <br/>heading from Kempegowda Bus Stand to Electronic City.<br/> <b>“U”</b> stands for “UP”- buses from the starting point <br/>and <b>“D”</b> for those towards the starting point.
-</small>
-<br/>
-<br/>
-<br/>
-<small>bbus.in is very much based on <br/><a href="http://www.narasimhadatta.info/bmtc_query.html" target="_blank">http://www.narasimhadatta.info/bmtc_query.html </a><br/>Thanks to Narasimha Datta.</small>
-</center>
+                <br/>
+                <br/>
+                <center>
+                    <button type="submit" data-loading-text="Searching ..." id="js-submit-btn" class="btn btn-primary btn-lg">Search</button>
+                </center>
+            </form>
+
+            <center>
+                <h3>bbus.in
+                    <small>BMTC Bus Route Search</small>
+                </h3>
+                <br/>
+                <br/>
+                <small>If you want to know the status of the bus, send an SMS to the number <b>9945634666</b> with the message, <b>"Yi v&lt;bus.no&gt; &lt;direction&gt;"</b> say, <b>“Yi V356C U”</b> where <b>“Yi”</b> means “Yelli Iddira?”. V356C is the route number of a bus heading from Kempegowda Bus Stand to Electronic City. <b>“U”</b> stands for “UP”- buses from the starting point and <b>“D”</b> for those towards the starting point.
+                </small>
+                <br/>
+                <br/>
+                <br/>
+                <small>bbus.in is very much based on
+                    <br/><a href="http://www.narasimhadatta.info/bmtc_query.html" target="_blank">http://www.narasimhadatta.info/bmtc_query.html </a>
+                    <br/>Thanks to Narasimha Datta.</small>
+            </center>
+        </div>
+        <div class="col-md-3">
+            {% include "social_btns.html" %}
+        </div>
+    </div>
+    <br/>
+
 </body>
 <script type="text/javascript">
 $(document).ready(function() {
     (function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.async=true; js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=534027093377555";
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.async = true;
+        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=534027093377555";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 
     (function() {
-      var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-      po.src = 'https://apis.google.com/js/platform.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        var po = document.createElement('script');
+        po.type = 'text/javascript';
+        po.async = true;
+        po.src = 'https://apis.google.com/js/platform.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(po, s);
     })();
 
     var bus_stops = new Bloodhound({
-      datumTokenizer: function(d) { return Bloodhound.tokenizers.whitespace(d.name); },
-      queryTokenizer: Bloodhound.tokenizers.whitespace,
-      limit: 8,
-      prefetch: {
-        url: '/static/bus_list.json',
-        filter: function(list) {
-         return $.map(list, function(bus_stop) { return { name: bus_stop }; });
+        datumTokenizer: function(d) {
+            return Bloodhound.tokenizers.whitespace(d.name);
+        },
+        queryTokenizer: Bloodhound.tokenizers.whitespace,
+        limit: 8,
+        prefetch: {
+            url: '/static/bus_list.json',
+            filter: function(list) {
+                return $.map(list, function(bus_stop) {
+                    return {
+                        name: bus_stop
+                    };
+                });
+            }
         }
-      }
     });
 
     bus_stops.initialize();
 
     $('.js-to .typeahead').typeahead({
-      highlight: true,
-     }, {
-      name: 'bus_stops',
-      displayKey: 'name',
-      source: bus_stops.ttAdapter()
+        highlight: true,
+    }, {
+        name: 'bus_stops',
+        displayKey: 'name',
+        source: bus_stops.ttAdapter()
     });
 
     $('.js-from .typeahead').typeahead({
-      highlight: true,
+        highlight: true,
     }, {
-      name: 'bus_stops',
-      displayKey: 'name',
-      source: bus_stops.ttAdapter(),
+        name: 'bus_stops',
+        displayKey: 'name',
+        source: bus_stops.ttAdapter(),
     });
 
-    $('#js-submit-btn').on('click', function(event){
+    $('#js-submit-btn').on('click', function(event) {
         event.preventDefault();
         $('#js-src-err').hide();
         $('#js-dst-err').hide();
@@ -128,13 +149,13 @@ $(document).ready(function() {
         $btn.button('loading');
         var $src = $('#js-src');
         var $dst = $('#js-dst');
-        if(!$src.val()){
+        if (!$src.val()) {
             $('#js-src').parent().addClass('has-error');
             $('#js-src-err').show();
             $btn.button('reset');
             return;
         }
-        if(!$dst.val()){
+        if (!$dst.val()) {
             $('#js-dst').parent().addClass('has-error');
             $('#js-dst-err').show();
             $btn.button('reset');
@@ -146,4 +167,5 @@ $(document).ready(function() {
 });
 </script>
 {% include "ga_track.html" %}
+
 </html>
