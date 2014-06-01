@@ -20,3 +20,8 @@ urlpatterns = patterns('',
     url(r'^search$', 'bbus.views.search', name='search'),
     url(r'^api/v1/search/', 'bbus.views.api', name='search'),
 ) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+if not settings.DEBUG:
+    urlpatterns += patterns('',
+        (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
+    )
