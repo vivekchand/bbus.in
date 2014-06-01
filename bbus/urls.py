@@ -19,7 +19,7 @@ urlpatterns = patterns('',
     url(r'^$', 'bbus.views.index', name='index'),
     url(r'^search$', 'bbus.views.search', name='search'),
     url(r'^api/v1/search/', 'bbus.views.api', name='search'),
-) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+)# + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 if not settings.DEBUG:
     urlpatterns += patterns('',
