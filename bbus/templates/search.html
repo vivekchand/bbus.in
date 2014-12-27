@@ -24,6 +24,8 @@
                         <th><small>From</small></th>
                         <th><small>To</small></th>
                         <th><small>Bus No.   </small></th>
+                        <th><small>Distance (Approx.)</small></th>
+                        <th><small>Duration (Approx.)</small></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -33,6 +35,8 @@
                         <td><small>{{ hop.From }}</small></td>
                         <td><small>{{ hop.To }}</small></td>
                         <td><small>{{ hop.bus_nos }}</small></td>
+                        <td><small>{% if hop.distance %}{{ hop.distance }}{%else%}-{%endif%}</small></td>
+                        <td><small>{% if hop.duration %}{{ hop.duration }}{%else%}-{%endif%}</small></td>
                     </tr>
                 {% endfor %}
                 </tbody>
