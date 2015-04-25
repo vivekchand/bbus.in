@@ -19,7 +19,8 @@ def search(request):
     dst = request.POST.get('to')
     how = request.POST.get('how')
     page = requests.post(settings.DATA_URL,
-        data={'from': src, 'to': dst, 'how': how})
+        data={'from': src, 'to': dst, 'how': how},
+        headers={"User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:19.0) Gecko/20100101 Firefox/19.0"})
     soup = BeautifulSoup(page.text)
     tables = soup.findAll('table')
     bus_routes = []
@@ -34,7 +35,8 @@ def api(request):
     dst = request.GET.get('to')
     how = request.GET.get('how')
     page = requests.post(settings.DATA_URL,
-        data={'from': src, 'to': dst, 'how': how})
+        data={'from': src, 'to': dst, 'how': how},
+        headers={"User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:19.0) Gecko/20100101 Firefox/19.0"})
     soup = BeautifulSoup(page.text)
     tables = soup.findAll('table')
     bus_routes = {}
